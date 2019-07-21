@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <meta name="viewport" content="width=device-width, maximum-scale=1">
+  <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+  <p id="par1">С&nbsp;одной стороны, ему хочется, чтобы сверстанный текст хорошо смотрелся в&nbsp;окне
+    браузера.
+    А&nbsp;для этого
+    нужно вместо знаков дюйма поставить нормальные кавычки (&laquo;какой-то текст &bdquo;елочки&ldquo;&raquo;
+    и&nbsp;&laquo;лапки&raquo поубивать лишние пробелы, в&nbsp;нужных местах поменять дефисы на&nbsp;тире, неразрывным
+    пробелом &laquo;привязать&raquo; все короткие союзы и&nbsp;предлоги к следующим за&nbsp;ними словам
+    и&nbsp;произвести кучу других операций. С&nbsp;другой стороны, очень не&nbsp;хочется расставлять все эти значки,
+    кавычки и&nbsp;неразрывные пробелы вручную.</p>
+  <table class="wrapperTable">
+    <tr>
+      <td><label for="sum">Сумма:</label></td>
+      <td><input type="text" id="sum" value="10000"></td>
+    </tr>
+    <tr>
+      <td><label for="month">Cрок в месяцах:</label></td>
+      <td><select type="text" id="month">
+          <option value="3" selected>3 (минимум)</option>
+          <option value="6">6 (полгода)</option>
+          <option value="12">12 (год)</option>
+          <option value="18">18 (1.5 года)</option>
+          <option value="24">24 (2 года)</option>
+          <option value="30">30 (2.5 года)</option>
+          <option value="36">36 (3 года)</option>
+        </select></td>
+    </tr>
+    <tr>
+      <td><label for="check">C капитализацией:</label></td>
+      <td class="checkBox"><input type="checkbox" id="check"></td>
+    </tr>
+    <table>
+      <tr>
+        <td style="vertical-align: top;">Было: <br><span class="wasSpan"></span></td>
+        <td style="vertical-align: top;">Стало: <br><span class="beSpan"></span></td>
+      </tr>
+      <tr>
+        <td style="vertical-align: bottom;">
+          <div class="was"></div>
+        </td>
+        <td style="vertical-align: bottom;">
+          <div class="be"></div>
+        </td>
+      </tr>
+    </table>
+  </table>
+
+  <script>
+    let inSum = document.querySelector('#sum');
+    let sel = document.querySelector('#month');
+    let check = document.querySelector('#check');
+    let divWas = document.querySelector('.was');
+    let divBe = document.querySelector('.be');
+    let wasSpan = document.querySelector('.wasSpan');
+    let beSpan = document.querySelector('.beSpan');
+
+    chengeIn()
+    inSum.addEventListener('input', chengeIn);
+    inSum.addEventListener('input', chengeIn);
+    sel.addEventListener('change', chengeIn);
+    function chengeIn() {
+      wasSpan.textContent = inSum.value
+      divWas.style.height = inSum.value / 500 + 'px';
+
+      beSpan.textContent = Number(inSum.value / 100*8/12 * sel.value) + Number(inSum.value);
+      divBe.style.height = Number((inSum.value / 500) / 100*8/12 * sel.value) + Number(inSum.value / 500) + 'px';
+    }
+    check.addEventListener('change', checkFlag);
+    function checkFlag(){
+      if(check.checked){
+        beSpan.textContent = Number(inSum.value / 100*8/12 * sel.value) + Number(inSum.value) + 500;
+        divBe.style.height = Number((inSum.value / 500) / 100*8/12 * sel.value) + Number((Number(500)+Number(inSum.value)) / 500) + 'px';
+      } else {
+        beSpan.textContent = Number(inSum.value / 100*8/12 * sel.value) + Number(inSum.value);
+        divBe.style.height = Number((inSum.value / 500) / 100*8/12 * sel.value) + Number(inSum.value / 500) + 'px';
+      }
+    }
+  </script>
+
+</body>
+
+</html>
