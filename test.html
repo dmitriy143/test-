@@ -71,21 +71,26 @@
       wasSpan.textContent = inSum.value
       divWas.style.height = inSum.value / 500 + 'px';
 
-      beSpan.textContent = Number(inSum.value / 100*8/12 * sel.value) + Number(inSum.value);
-      divBe.style.height = Number((inSum.value / 500) / 100*8/12 * sel.value) + Number(inSum.value / 500) + 'px';
+      beSpan.textContent = Number(inSum.value / 100 * 8 / 12 * sel.value) + Number(inSum.value);
+      divBe.style.height = Number((inSum.value / 500) / 100 * 8 / 12 * sel.value) + Number(inSum.value / 500) + 'px';
     }
     check.addEventListener('change', checkFlag);
-    function checkFlag(){
-      if(check.checked){
-        beSpan.textContent = Number(inSum.value / 100*8/12 * sel.value) + Number(inSum.value) + 500;
-        divBe.style.height = Number((inSum.value / 500) / 100*8/12 * sel.value) + Number((Number(500)+Number(inSum.value)) / 500) + 'px';
+    function checkFlag() {
+      if (check.checked) {
+        beSpan.textContent = Number(inSum.value / 100 * 8 / 12 * sel.value) + Number(inSum.value) + 500;
+        divBe.style.height = Number((inSum.value / 500) / 100 * 8 / 12 * sel.value) + Number((Number(500) + Number(inSum.value)) / 500) + 'px';
       } else {
-        beSpan.textContent = Number(inSum.value / 100*8/12 * sel.value) + Number(inSum.value);
-        divBe.style.height = Number((inSum.value / 500) / 100*8/12 * sel.value) + Number(inSum.value / 500) + 'px';
+        beSpan.textContent = Number(inSum.value / 100 * 8 / 12 * sel.value) + Number(inSum.value);
+        divBe.style.height = Number((inSum.value / 500) / 100 * 8 / 12 * sel.value) + Number(inSum.value / 500) + 'px';
       }
     }
+    var parags = document.querySelectorAll('p');
+    parags.forEach(elem => elem.addEventListener('click',
+      () => window.setInterval(
+        () => elem.innerHTML = Number(elem.innerHTML) + 1, 1000)
+    ));
   </script>
-<!-- a;sdflkjasd;flkj -->
+  <!-- a;sdflkjasd;flkj -->
 </body>
 
 </html>
