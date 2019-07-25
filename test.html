@@ -17,78 +17,21 @@
     пробелом &laquo;привязать&raquo; все короткие союзы и&nbsp;предлоги к следующим за&nbsp;ними словам
     и&nbsp;произвести кучу других операций. С&nbsp;другой стороны, очень не&nbsp;хочется расставлять все эти значки,
     кавычки и&nbsp;неразрывные пробелы вручную.</p>
-  <table class="wrapperTable">
-    <tr>
-      <td><label for="sum">Сумма:</label></td>
-      <td><input type="text" id="sum" value="10000"></td>
-    </tr>
-    <tr>
-      <td><label for="month">Cрок в месяцах:</label></td>
-      <td><select type="text" id="month">
-          <option value="3" selected>3 (минимум)</option>
-          <option value="6">6 (полгода)</option>
-          <option value="12">12 (год)</option>
-          <option value="18">18 (1.5 года)</option>
-          <option value="24">24 (2 года)</option>
-          <option value="30">30 (2.5 года)</option>
-          <option value="36">36 (3 года)</option>
-        </select></td>
-    </tr>
-    <tr>
-      <td><label for="check">C капитализацией:</label></td>
-      <td class="checkBox"><input type="checkbox" id="check"></td>
-    </tr>
-    <table>
-      <tr>
-        <td style="vertical-align: top;">Было: <br><span class="wasSpan"></span></td>
-        <td style="vertical-align: top;">Стало: <br><span class="beSpan"></span></td>
-      </tr>
-      <tr>
-        <td style="vertical-align: bottom;">
-          <div class="was"></div>
-        </td>
-        <td style="vertical-align: bottom;">
-          <div class="be"></div>
-        </td>
-      </tr>
-    </table>
-  </table>
 
+  <span id="sp" style="width: 100px; height: 100px; background: #f3f3f3;">0</span>
   <script>
-    let inSum = document.querySelector('#sum');
-    let sel = document.querySelector('#month');
-    let check = document.querySelector('#check');
-    let divWas = document.querySelector('.was');
-    let divBe = document.querySelector('.be');
-    let wasSpan = document.querySelector('.wasSpan');
-    let beSpan = document.querySelector('.beSpan');
+    // let sp = document.querySelector('#sp');
+    // let x = 0;
 
-    chengeIn()
-    inSum.addEventListener('input', chengeIn);
-    inSum.addEventListener('input', chengeIn);
-    sel.addEventListener('change', chengeIn);
-    function chengeIn() {
-      wasSpan.textContent = inSum.value
-      divWas.style.height = inSum.value / 500 + 'px';
+    // let timer = setInterval(func, 1000);
+    // function func() {
+    //   x++;
+    //   sp.textContent = x;
+    //   if (x == 5) {
+    //     clearInterval(timer);
+    //   }
+    // }
 
-      beSpan.textContent = Number(inSum.value / 100 * 8 / 12 * sel.value) + Number(inSum.value);
-      divBe.style.height = Number((inSum.value / 500) / 100 * 8 / 12 * sel.value) + Number(inSum.value / 500) + 'px';
-    }
-    check.addEventListener('change', checkFlag);
-    function checkFlag() {
-      if (check.checked) {
-        beSpan.textContent = Number(inSum.value / 100 * 8 / 12 * sel.value) + Number(inSum.value) + 500;
-        divBe.style.height = Number((inSum.value / 500) / 100 * 8 / 12 * sel.value) + Number((Number(500) + Number(inSum.value)) / 500) + 'px';
-      } else {
-        beSpan.textContent = Number(inSum.value / 100 * 8 / 12 * sel.value) + Number(inSum.value);
-        divBe.style.height = Number((inSum.value / 500) / 100 * 8 / 12 * sel.value) + Number(inSum.value / 500) + 'px';
-      }
-    }
-    var parags = document.querySelectorAll('p');
-    parags.forEach(elem => elem.addEventListener('click',
-      () => window.setInterval(
-        () => elem.innerHTML = Number(elem.innerHTML) + 1, 1000)
-    ));
   </script>
 
 </body>
