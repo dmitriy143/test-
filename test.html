@@ -9,29 +9,41 @@
 </head>
 
 <body>
-  <p id="par1">С&nbsp;одной стороны, ему хочется, чтобы сверстанный текст хорошо смотрелся в&nbsp;окне
+  <!-- <p id="par1">С&nbsp;одной стороны, ему хочется, чтобы сверстанный текст хорошо смотрелся в&nbsp;окне
     браузера.
     А&nbsp;для этого
     нужно вместо знаков дюйма поставить нормальные кавычки (&laquo;какой-то текст &bdquo;елочки&ldquo;&raquo;
     и&nbsp;&laquo;лапки&raquo поубивать лишние пробелы, в&nbsp;нужных местах поменять дефисы на&nbsp;тире, неразрывным
     пробелом &laquo;привязать&raquo; все короткие союзы и&nbsp;предлоги к следующим за&nbsp;ними словам
     и&nbsp;произвести кучу других операций. С&nbsp;другой стороны, очень не&nbsp;хочется расставлять все эти значки,
-    кавычки и&nbsp;неразрывные пробелы вручную.</p>
+    кавычки и&nbsp;неразрывные пробелы вручную.</p> -->
 
-  <span id="sp" style="width: 100px; height: 100px; background: #f3f3f3;">0</span>
+  <p cladss="ghbdtn">1</p>
+  <p>2</p>
+  <p>3</p>
+  <p>4</p>
+  <p>5</p>
+  <button>go</button>
   <script>
-    // let sp = document.querySelector('#sp');
-    // let x = 0;
-
-    // let timer = setInterval(func, 1000);
-    // function func() {
-    //   x++;
-    //   sp.textContent = x;
-    //   if (x == 5) {
-    //     clearInterval(timer);
-    //   }
-    // }
-
+    let elem = document.querySelectorAll('p');
+    let set = new Set;
+    addElemSet(elem);
+    function addElemSet(elem) {
+      for (let key of elem) {
+        key.addEventListener('click', function () {
+          set.add(this);
+          this.style.background = 'green';
+        })
+      }
+    }
+    let but = document.querySelector('button');
+    but.addEventListener('click', function () {
+      for (let elem of set) {
+        elem.textContent = elem.textContent + '!';
+        elem.style.background = 'none';
+      }
+      set.clear();
+    })
   </script>
 
 </body>

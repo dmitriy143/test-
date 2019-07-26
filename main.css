@@ -10,10 +10,15 @@ td {
 select {
   width: 100%;
 }
-.was{
+.was {
   background: red;
   height: 100px;
 }
-.be{
+.be {
   background: blue;
+}
+p {
+  border: 1px solid red;
+  width: 500px;
+  padding: 5px;
 }
