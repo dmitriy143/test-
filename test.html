@@ -9,57 +9,39 @@
 </head>
 
 <body>
-  <!-- <p id="par1">С&nbsp;одной стороны, ему хочется, чтобы сверстанный текст хорошо смотрелся в&nbsp;окне
-    браузера.
-    А&nbsp;для этого
-    нужно вместо знаков дюйма поставить нормальные кавычки (&laquo;какой-то текст &bdquo;елочки&ldquo;&raquo;
-    и&nbsp;&laquo;лапки&raquo поубивать лишние пробелы, в&nbsp;нужных местах поменять дефисы на&nbsp;тире, неразрывным
-    пробелом &laquo;привязать&raquo; все короткие союзы и&nbsp;предлоги к следующим за&nbsp;ними словам
-    и&nbsp;произвести кучу других операций. С&nbsp;другой стороны, очень не&nbsp;хочется расставлять все эти значки,
-    кавычки и&nbsp;неразрывные пробелы вручную.</p> -->
 
-  <input type="text"><br><br>
-  <input type="text"><br><br>
-  <input type="text"><br><br>
+  <div class="wrapper">
+    <div class="param">
+      <label for="wd" class="label-width">width:</label>
+      <input type="range" id="wd" min="0" max="500" step="5">
+      <input id="input-reange" value="100">
+    </div>
+    <div class="wrapperBatton">
+      <button class="btn">кнопка</button>
+    </div>
+    <div class="out">
+      <p class="out-p">
+      </p>
+    </div>
+  </div>
 
   <script>
-    let inputs = document.querySelectorAll('input');
-    let map = new Map;
-    for (let input of inputs) {
-      map.set(input, { values: [], index: -1 });
+    let rang = document.querySelector('#wd');
+    let inputRange = document.querySelector('#input-reange');
+    let btn = document.querySelector('.btn');
+    let p = document.querySelector('.out-p');
 
-      input.addEventListener('blur', function () {
-        let { values, index } = map.get(this);
-        values.push(this.value);
-        map.set(this, { values, index: index + 1 })
-
-        this.value = '';
-        console.log(map.get(this));
-      });
-      input.addEventListener('keydown', function (event) {
-        if (event.key == 'ArrowLeft') {
-          let { values, index } = map.get(this);
-
-          if (index > -1) {
-            this.value = values[index];
-            map.set(this, { values, index: index - 1 });
-          }
-          event.preventDefault();
-        }
-        if (event.key == 'ArrowRight') {
-          let { values, index } = map.get(this);
-          if (index < values.length - 1) {
-            this.value = values[index + 1];
-            map.set(this, { values, index: index + 1 });
-          }
-          event.preventDefault();
-        }
-      })
+    func()
+    rang.addEventListener('input', func)
+    inputRange.addEventListener('change', func)
+    
+    function func() {
+      inputRange.value = this.value || rang.value;
+      rang.value = this.value || inputRange.value;
+      btn.style.width = rang.value + 'px';
+      p.innerText = '<!-- button_' + rang.value + ' ( -->\n <tr>\n <td align="center" height="50" style="height: 50px; line-height: 0; font-size: 0;">\n <table cellpadding="0" cellspacing="0" border="0" width="'+rang.value+'" style="width:'+rang.value+'px; border-spacing: 0; text-align: center; height: 50px;">\n<tr>\n<td title="Стать самозанятым" width="'+rang.value+'" style="background-color: #363636; height: 50px; padding: 0; text-align: center; vertical-align: middle; width: '+rang.value+'px; border-radius: 6px; ">\n<a class="link" target="_blank" href="https://www.sberbank.ru/ru/svoedelo?utm_source=sendsay-kb&utm_medium=email&utm_campaign=samozan_svoedelo_samozan_29_19&utm_content=button_body#application" style="color: #ffffff; display: block; font-family: Arial, Helvetica, sans-serif; font-size: 17px; line-height: 50px; font-weight: 400; text-decoration: none !important; ">Стать самозанятым</a>\n</td>\n</tr>\n</table>\n</td>\n</tr>\n<!-- button_'+ rang.value +') -->';
     }
-
-
   </script>
-
 </body>
 
 </html>
