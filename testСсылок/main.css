@@ -1,0 +1,76 @@
+/* width ( */
+.wrapper {
+  display: flex;
+  border: 1px solid rgb(105, 94, 94);
+}
+.wrapper-param {
+  border: 1px solid grey;
+  width: 10%;
+  padding: 0 10px;
+}
+.param-width {
+  padding: 10px 0;
+}
+#width-btn-range {
+  width: 97%;
+}
+#width-btn-input {
+  width: 40px;
+  margin-left: 10px;
+}
+.wrapper-batton {
+  width: 40%;
+  text-align: center;
+}
+.banner {
+  font-size: 30px;
+  line-height: 36px;
+  padding: 30px 10px 60px 10px;
+}
+.btn {
+  padding: 0;
+  border: none;
+  border-radius: 6px;
+  background-color: #363636;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 17px;
+  line-height: 50px;
+}
+
+.out-wrapper {
+  border: 1px solid grey;
+  width: 50%;
+}
+.out-code {
+  white-space: normal;
+  word-wrap: break-word;
+}
+/* width ) */
+
+/* height ( */
+#height-btn-range {
+  width: 97%;
+}
+#height-btn-input {
+  width: 40px;
+  margin-left: 10px;
+}
+/* height ) */
+
+/* border-radius ( */
+#bradius-btn-range {
+  width: 97%;
+}
+#bradius-btn-input {
+  width: 40px;
+  margin-left: 10px;
+}
+/* border-radius ) */
+
+/* color ( */
+#color-btn-input {
+  width: 70%;
+  margin-left: 10px;
+}
+/* color ) */
